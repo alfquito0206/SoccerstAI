@@ -31,7 +31,12 @@ yarn-error.*
 *.pem
 
 # local env files
+.env
 .env*.local
+
+# Firebase service account — nunca commitear
+serviceAccountKey.json
+**/serviceAccountKey.json
 
 # typescript
 *.tsbuildinfo

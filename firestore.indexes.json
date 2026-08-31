@@ -1,0 +1,21 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "wc_matches",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "h2h_key", "order": "ASCENDING" },
+        { "fieldPath": "date",    "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "wc_matches",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "teams", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "date",  "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
