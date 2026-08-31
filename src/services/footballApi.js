@@ -1,7 +1,7 @@
 import { getCache, setCache } from '../utils/cache';
 
 const BASE_URL = 'https://v3.football.api-sports.io';
-const API_KEY = '5c293b02937c9df0661c3b3089fedc69';
+const API_KEY = process.env.EXPO_PUBLIC_FOOTBALL_API_KEY;
 const TIMEZONE = 'America/Mexico_City';
 
 async function apiFetch(endpoint) {
