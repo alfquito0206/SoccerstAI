@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Colecciones de lectura pública o para usuarios autenticados
+    // (Escritas únicamente por Cloud Functions usando Firebase Admin SDK)
+    match /matches/{document} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /odds/{document} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /wc_matches/{document} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Datos del usuario (cada usuario solo puede leer y escribir su propia información)
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Por defecto, denegar cualquier otra lectura o escritura no especificada
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
